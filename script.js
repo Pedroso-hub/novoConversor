@@ -100,11 +100,11 @@ botaoTrocar.addEventListener("click", ()=>{
     let imgTemp = img.src;
     img.src = img2.src;
     img2.src = imgTemp;
-    //let moedaTemp = moedaPara;
-    //moedaPara = moedaDe;
-    //console.log(moedaDe);
-    //moedaDe = moedaTemp;
-    //console.log(moedaPara);
+    let moedaTemp = moedaPara;
+    moedaPara = moedaDe;
+    console.log(moedaDe);
+    moedaDe = moedaTemp;
+    console.log(moedaPara);
 })
 
 
@@ -151,19 +151,22 @@ function pegarCodigoDaMoeda(SiglaPais){
 
 
 
-
-function botao(){
+async function botao(){
     console.log("click!");
-    if(moedaDe!== undefined && moedaPara!== undefined && moedaDe!==moedaPara){
-       pegarTaxaConversao(moedaDe, moedaPara);
+
+    if(moedaDe!== undefined && moedaPara!== undefined && moedaDe!==moedaPara&&input.value!== ""){
+    console.log("2!");
+       await pegarTaxaConversao(moedaDe, moedaPara);
+       
+       
+       
+       
+       console.log(input.value)
+       output.textContent = input.value*taxaConversao
+       console.log(input.value*taxaConversao);
 
     }
-    if(input.value!== ""){
-        console.log(input.value)
-        output.textContent = input.value*taxaConversao;
-        console.log(input.value*taxaConversao);
-
-    }
+    
  
 }
 
