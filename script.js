@@ -55,8 +55,8 @@ let img2 = document.querySelector("#imagem2");
 
 let botaoTrocar = document.querySelector(".botton-swap");
 let botaoConversao = document.querySelector(".state-layer");
-let moedaDe;
-let moedaPara;
+let moedaDe = "BRL";
+let moedaPara = "USD";
 let taxaConversao = null;
 let input = document.querySelector("#input");
 let output = document.querySelector("#output");
