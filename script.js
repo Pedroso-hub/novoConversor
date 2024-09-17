@@ -154,7 +154,7 @@ function pegarCodigoDaMoeda(SiglaPais){
 async function botao(){
     console.log("click!");
 
-    if(moedaDe!== undefined && moedaPara!== undefined && moedaDe!==moedaPara&&input.value!== ""){
+    if(moedaDe!== undefined && moedaPara!== undefined && moedaDe!==moedaPara&&input.value!== 0){
     console.log("2!");
        await pegarTaxaConversao(moedaDe, moedaPara);
        
