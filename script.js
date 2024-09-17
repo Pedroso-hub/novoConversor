@@ -55,8 +55,8 @@ let img2 = document.querySelector("#imagem2");
 
 let botaoTrocar = document.querySelector(".botton-swap");
 let botaoConversao = document.querySelector(".state-layer");
-let moedaDe;
-let moedaPara;
+let moedaDe = "BRL";
+let moedaPara = "USD";
 let taxaConversao = null;
 let input = document.querySelector("#input");
 let output = document.querySelector("#output");
@@ -100,11 +100,11 @@ botaoTrocar.addEventListener("click", ()=>{
     let imgTemp = img.src;
     img.src = img2.src;
     img2.src = imgTemp;
-    //let moedaTemp = moedaPara;
-    //moedaPara = moedaDe;
-    //console.log(moedaDe);
-    //moedaDe = moedaTemp;
-    //console.log(moedaPara);
+    let moedaTemp = moedaPara;
+    moedaPara = moedaDe;
+    console.log(moedaDe);
+    moedaDe = moedaTemp;
+    console.log(moedaPara);
 })
 
 
@@ -151,19 +151,22 @@ function pegarCodigoDaMoeda(SiglaPais){
 
 
 
-
-function botao(){
+async function botao(){
     console.log("click!");
-    if(moedaDe!== undefined && moedaPara!== undefined && moedaDe!==moedaPara){
-       pegarTaxaConversao(moedaDe, moedaPara);
+
+    if(moedaDe!== undefined && moedaPara!== undefined && moedaDe!==moedaPara&&input.value!== 0){
+    console.log("2!");
+       await pegarTaxaConversao(moedaDe, moedaPara);
+       
+       
+       
+       
+       console.log(input.value)
+       output.value = input.value*taxaConversao
+       console.log(input.value*taxaConversao);
 
     }
-    if(input.value!== ""){
-        console.log(input.value)
-        output.textContent = input.value*taxaConversao;
-        console.log(input.value*taxaConversao);
-
-    }
+    
  
 }
 
